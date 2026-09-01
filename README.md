@@ -4,7 +4,7 @@ A comprehensive MATLAB/Simulink quarter-car simulation comparing a **Fuzzy Logic
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 Anti-lock Braking Systems (ABS) are crucial safety mechanisms in modern automobiles designed to prevent wheel lock-up during hard braking. By dynamically modulating brake line pressure, an ABS ensures the tire-road interface operates near the optimal tire slip ratio ($\lambda$), thereby maximizing the friction coefficient ($\mu$) and maintaining vehicle steerability while minimizing stopping distance.
 
@@ -14,7 +14,7 @@ This repository provides a complete simulation environment comparing:
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 ├── ABS Fuzzy VS PID Report.docx  # Full project report (MECE404 End of Semester Project)
@@ -28,7 +28,7 @@ This repository provides a complete simulation environment comparing:
 
 ---
 
-## 📐 Mathematical & System Model
+## Mathematical & System Model
 
 The system utilizes a **quarter-car vehicle model** with dynamic equations governing vehicle translation and wheel rotation:
 
@@ -59,7 +59,7 @@ The system utilizes a **quarter-car vehicle model** with dynamic equations gover
 * **Actuator Dynamics (Brake Pressure to Torque)**:
   Brake pressure output from the controller is transformed into brake torque $T_b$ via a first-order transfer function followed by saturation limits.
 
-### 3. Tire-Road Friction Coefficient ($\mu$-$\lambda$ Curves)
+### 3. Tire-Road Friction Coefficient ($\mu-\lambda$ Curves)
 
 The relationship between slip ratio $\lambda$ and friction coefficient $\mu$ is non-linear and varies significantly based on surface conditions:
 * **Dry Asphalt**: Peak friction $\mu_{max} \approx 0.90$ at target slip $\lambda^* = 0.15$.
@@ -68,7 +68,7 @@ The relationship between slip ratio $\lambda$ and friction coefficient $\mu$ is 
 
 ---
 
-## 🎛️ Controller Specifications
+## Controller Specifications
 
 ### 1. PID Controller
 * **Input**: Slip error $e(t) = \lambda_{target} - \lambda(t)$.
@@ -178,7 +178,7 @@ The relationship between slip ratio $\lambda$ and friction coefficient $\mu$ is 
 
 ---
 
-## 🎓 Authors & Acknowledgments
+## Authors & Acknowledgments
 
 * **Authors**: Abdul Karim (22244410053) & Salman AL-KHULAQI (22244410048)
 * **Course**: MECE404 - Intelligent Mechatronics (End of Semester Project)
@@ -186,6 +186,6 @@ The relationship between slip ratio $\lambda$ and friction coefficient $\mu$ is 
 
 ---
 
-## 📄 License
+## License
 
 This project is open-source and available under the [MIT License](LICENSE).

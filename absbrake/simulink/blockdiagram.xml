@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModelInformation Version="1.0">
+  <Model>
+    <P Name="ModelUUID">57f3dc0d-b98d-4a7d-b239-c17f6db7d823</P>
+    <P Name="PreLoadFcn">% Load initialization data
+
+sldemo_absdata;</P>
+    <P Name="SLXCompressionType">Normal</P>
+    <P Name="OverrideScopeRefreshTime">off</P>
+    <P Name="FPTRunName">Active</P>
+    <P Name="CloseFcn">% Close the plots that are still open
+h = findobj(0, &apos;Name&apos;, &apos;ABS Speeds&apos;);
+if ~isempty(h),
+  close(h);
+end;
+
+h = findobj(0, &apos;Name&apos;, &apos;ABS Slip&apos;);
+if ~isempty(h),
+  close(h);
+end;
+
+% Clear initial conditions data to avoid cluttering the workspace
+
+clear g v0 Rr Kf m PBmax TB I slip mu ctrl h;</P>
+    <P Name="LastSavedArchitecture">win64</P>
+    <ConfigManagerSettings>
+      <P Name="ModifiedByFormat">The MathWorks, Inc.</P>
+      <P Name="ModifiedDateFormat">%&lt;Auto&gt;</P>
+      <P Name="ModelVersionFormat">%&lt;AutoIncrement:8.7&gt;</P>
+    </ConfigManagerSettings>
+    <EditorSettings>
+      <P Name="LibraryLinkDisplay">none</P>
+      <P Name="WideLines">on</P>
+      <P Name="ShowPortUnits">on</P>
+      <P Name="BlockParametersDataTip">on</P>
+      <P Name="MultithreadedSim">on</P>
+    </EditorSettings>
+    <SimulationSettings>
+      <P Name="SimulationMode">normal</P>
+      <Object PropName="DataLoggingOverride" ObjectID="1" ClassName="Simulink.SimulationData.ModelLoggingInfo">
+        <P Name="model_" Class="char">$bdroot</P>
+        <Array PropName="signals_" Type="Simulink.SimulationData.SignalLoggingInfo" Dimension="1*2">
+          <Object ObjectID="2">
+            <Object PropName="blockPath_" ObjectID="3" ClassName="Simulink.BlockPath">
+              <Array PropName="path" Type="Cell" Dimension="1*1">
+                <Cell Class="char">$bdroot/Bus Creator</Cell>
+              </Array>
+              <Array PropName="ssid" Type="Cell" Dimension="1*1">
+                <Cell Class="char"/>
+              </Array>
+            </Object>
+            <P Name="outputPortIndex_" Class="double">1.0</P>
+            <Object PropName="loggingInfo_" ObjectID="4" ClassName="Simulink.SimulationData.LoggingInfo">
+              <P Name="dataLogging_" Class="double">1.0</P>
+              <P Name="nameMode_" Class="double">0.0</P>
+              <P Name="decimateData_" Class="double">0.0</P>
+              <P Name="decimation_" Class="double">2.0</P>
+              <P Name="limitDataPoints_" Class="double">0.0</P>
+              <P Name="maxPoints_" Class="double">5000.0</P>
+            </Object>
+            <P Name="signalName_" Class="char">yout</P>
+          </Object>
+          <Object ObjectID="5">
+            <Object PropName="blockPath_" ObjectID="6" ClassName="Simulink.BlockPath">
+              <Array PropName="path" Type="Cell" Dimension="1*1">
+                <Cell Class="char">$bdroot/Relative Slip</Cell>
+              </Array>
+              <Array PropName="ssid" Type="Cell" Dimension="1*1">
+                <Cell Class="char"/>
+              </Array>
+            </Object>
+            <P Name="outputPortIndex_" Class="double">1.0</P>
+            <Object PropName="loggingInfo_" ObjectID="7" ClassName="Simulink.SimulationData.LoggingInfo">
+              <P Name="dataLogging_" Class="double">1.0</P>
+              <P Name="nameMode_" Class="double">0.0</P>
+              <P Name="decimateData_" Class="double">1.0</P>
+              <P Name="decimation_" Class="double">1.0</P>
+              <P Name="limitDataPoints_" Class="double">1.0</P>
+              <P Name="maxPoints_" Class="double">10000.0</P>
+            </Object>
+            <P Name="signalName_" Class="char">slp</P>
+          </Object>
+        </Array>
+        <P Name="overrideMode_" Class="double">0.0</P>
+      </Object>
+      <Object PropName="InstrumentedSignals" ObjectID="8" ClassName="Simulink.HMI.InstrumentedSignals">
+        <Array PropName="Persistence" Type="Struct" Dimension="8*1">
+          <MATStruct>
+            <Field Name="UUID" Class="char">d325b2ec-6349-404f-8744-c7d1e7d73a3b</Field>
+            <Field Name="BlockPath_" Class="char">slip calculation/Relative Slip</Field>
+            <Field Name="SID_" Class="char">6</Field>
+            <Field Name="SubPath_" Class="char"/>
+            <Field Name="OutputPortIndex_" Class="double">1.0</Field>
+            <Field Name="LogicalPortIndex_" Class="double">0.0</Field>
+            <Field Name="SignalName_" Class="char"/>
+            <Field Name="SubSysPath_" Class="char"/>
+            <Field Name="Decimation_" Class="double">1.0</Field>
+            <Field Name="MaxPoints_" Class="double">0.0</Field>
+            <Field Name="TargetBufferedStreaming_" Class="double">0.0</Field>
+            <Field Name="IsFrameBased_" Class="double">0.0</Field>
+            <Field Name="HideInSDI_" Class="double">0.0</Field>
+            <Field Name="DomainType_" Class="char"/>
+            <Array PropName="DomainParams_" Type="Struct" Dimension="1*1">
+              <MATStruct/>
+            </Array>
+            <Field Name="VisualType_" Class="char"/>
+          </MATStruct>
+          <MATStruct>
+            <Field Name="UUID" Class="char">56eb1c2b-657b-463a-ab28-bf680bc1b5ec</Field>
+            <Field Name="BlockPath_" Class="char">slip calculation/Bus Creator</Field>
+            <Field Name="SID_" Class="char">141</Field>
+            <Field Name="SubPath_" Class="char"/>
+            <Field Name="OutputPortIndex_" Class="double">1.0</Field>
+            <Field Name="LogicalPortIndex_" Class="double">0.0</Field>
+            <Field Name="SignalName_" Class="char"/>
+            <Field Name="SubSysPath_" Class="char"/>
+            <Field Name="Decimation_" Class="double">1.0</Field>
+            <Field Name="MaxPoints_" Class="double">0.0</Field>
+            <Field Name="TargetBufferedStreaming_" Class="double">0.0</Field>
+            <Field Name="IsFrameBased_" Class="double">0.0</Field>
+            <Field Name="HideInSDI_" Class="double">0.0</Field>
+            <Field Name="DomainType_" Class="char"/>
+            <Array PropName="DomainParams_" Type="Struct" Dimension="1*1">
+              <MATStruct/>
+            </Array>
+            <Field Name="VisualType_" Class="char"/>
+          </MATStruct>
+          <MATStruct>
+            <Field Name="UUID" Class="char">082f08d9-b8fd-45a9-8492-fb25b6dbc166</Field>
+            <Field Name="BlockPath_" Class="char">Wheel dynamics/1//J</Field>
+            <Field Name="SID_" Class="char">213</Field>
+            <Field Name="SubPath_" Class="char"/>
+            <Field Name="OutputPortIndex_" Class="double">1.0</Field>
+            <Field Name="LogicalPortIndex_" Class="double">0.0</Field>
+            <Field Name="SignalName_" Class="char"/>
+            <Field Name="SubSysPath_" Class="char"/>
+            <Field Name="Decimation_" Class="double">1.0</Field>
+            <Field Name="MaxPoints_" Class="double">0.0</Field>
+            <Field Name="TargetBufferedStreaming_" Class="double">0.0</Field>
+            <Field Name="IsFrameBased_" Class="double">0.0</Field>
+            <Field Name="HideInSDI_" Class="double">0.0</Field>
+            <Field Name="DomainType_" Class="char"/>
+            <Array PropName="DomainParams_" Type="Struct" Dimension="1*1">
+              <MATStruct/>
+            </Array>
+            <Field Name="VisualType_" Class="char"/>
+          </MATStruct>
+          <MATStruct>
+            <Field Name="UUID" Class="char">d27895ce-ed5f-4807-bb8e-cd0f1add665f</Field>
+            <Field Name="BlockPath_" Class="char">Wheel dynamics/Wheel angular_velocity</Field>
+            <Field Name="SID_" Class="char">219</Field>
+            <Field Name="SubPath_" Class="char"/>
+            <Field Name="OutputPortIndex_" Class="double">1.0</Field>
+            <Field Name="LogicalPortIndex_" Class="double">0.0</Field>
+            <Field Name="SignalName_" Class="char"/>
+            <Field Name="SubSysPath_" Class="char"/>
+            <Field Name="Decimation_" Class="double">1.0</Field>
+            <Field Name="MaxPoints_" Class="double">0.0</Field>
+            <Field Name="TargetBufferedStreaming_" Class="double">0.0</Field>
+            <Field Name="IsFrameBased_" Class="double">0.0</Field>
+            <Field Name="HideInSDI_" Class="double">0.0</Field>
+            <Field Name="DomainType_" Class="char"/>
+            <Array PropName="DomainParams_" Type="Struct" Dimension="1*1">
+              <MATStruct/>
+            </Array>
+            <Field Name="VisualType_" Class="char"/>
+          </MATStruct>
+          <MATStruct>
+            <Field Name="UUID" Class="char">88ac1fa3-2d1e-40c6-a929-28b6f7a4a3c0</Field>
+            <Field Name="BlockPath_" Class="char">Vehicle dynamics</Field>
+            <Field Name="SID_" Class="char">297</Field>
+            <Field Name="SubPath_" Class="char"/>
+            <Field Name="OutputPortIndex_" Class="double">2.0</Field>
+            <Field Name="LogicalPortIndex_" Class="double">0.0</Field>
+            <Field Name="SignalName_" Class="char">Vehicle velocity</Field>
+            <Field Name="SubSysPath_" Class="char"/>
+            <Field Name="Decimation_" Class="double">1.0</Field>
+            <Field Name="MaxPoints_" Class="double">1024.0</Field>
+            <Field Name="TargetBufferedStreaming_" Class="double">0.0</Field>
+            <Field Name="IsFrameBased_" Class="double">0.0</Field>
+            <Field Name="HideInSDI_" Class="double">0.0</Field>
+            <Field Name="DomainType_" Class="char"/>
+            <Array PropName="DomainParams_" Type="Struct" Dimension="1*1">
+              <MATStruct/>
+            </Array>
+            <Field Name="VisualType_" Class="char"/>
+          </MATStruct>
+          <MATStruct>
+            <Field Name="UUID" Class="char">685e03ee-7a58-4549-a139-b9ca24ff1bea</Field>
+            <Field Name="BlockPath_" Class="char">Wheel dynamics</Field>
+            <Field Name="SID_" Class="char">302</Field>
+            <Field Name="SubPath_" Class="char"/>
+            <Field Name="OutputPortIndex_" Class="double">1.0</Field>
+            <Field Name="LogicalPortIndex_" Class="double">0.0</Field>
+            <Field Name="SignalName_" Class="char">Wheel angular velocity (Fuzzy)_dry</Field>
+            <Field Name="SubSysPath_" Class="char"/>
+            <Field Name="Decimation_" Class="double">1.0</Field>
+            <Field Name="MaxPoints_" Class="double">1024.0</Field>
+            <Field Name="TargetBufferedStreaming_" Class="double">0.0</Field>
+            <Field Name="IsFrameBased_" Class="double">0.0</Field>
+            <Field Name="HideInSDI_" Class="double">0.0</Field>
+            <Field Name="DomainType_" Class="char"/>
+            <Array PropName="DomainParams_" Type="Struct" Dimension="1*1">
+              <MATStruct/>
+            </Array>
+            <Field Name="VisualType_" Class="char"/>
+          </MATStruct>
+          <MATStruct>
+            <Field Name="UUID" Class="char">9f4c9bf3-f850-4bf0-9b6b-219ce47b9e5f</Field>
+            <Field Name="BlockPath_" Class="char">slip calculation</Field>
+            <Field Name="SID_" Class="char">307</Field>
+            <Field Name="SubPath_" Class="char"/>
+            <Field Name="OutputPortIndex_" Class="double">1.0</Field>
+            <Field Name="LogicalPortIndex_" Class="double">0.0</Field>
+            <Field Name="SignalName_" Class="char">slip ratio (PID)
+_dry</Field>
+            <Field Name="SubSysPath_" Class="char"/>
+            <Field Name="Decimation_" Class="double">1.0</Field>
+            <Field Name="MaxPoints_" Class="double">1024.0</Field>
+            <Field Name="TargetBufferedStreaming_" Class="double">0.0</Field>
+            <Field Name="IsFrameBased_" Class="double">0.0</Field>
+            <Field Name="HideInSDI_" Class="double">0.0</Field>
+            <Field Name="DomainType_" Class="char"/>
+            <Array PropName="DomainParams_" Type="Struct" Dimension="1*1">
+              <MATStruct/>
+            </Array>
+            <Field Name="VisualType_" Class="char"/>
+          </MATStruct>
+          <MATStruct>
+            <Field Name="UUID" Class="char">659ff61b-d078-42fa-8113-0f1f6af6f831</Field>
+            <Field Name="BlockPath_" Class="char">Vehicle dynamics</Field>
+            <Field Name="SID_" Class="char">297</Field>
+            <Field Name="SubPath_" Class="char"/>
+            <Field Name="OutputPortIndex_" Class="double">3.0</Field>
+            <Field Name="LogicalPortIndex_" Class="double">0.0</Field>
+            <Field Name="SignalName_" Class="char">stopping distance (PID)_dry</Field>
+            <Field Name="SubSysPath_" Class="char"/>
+            <Field Name="Decimation_" Class="double">1.0</Field>
+            <Field Name="MaxPoints_" Class="double">1024.0</Field>
+            <Field Name="TargetBufferedStreaming_" Class="double">0.0</Field>
+            <Field Name="IsFrameBased_" Class="double">0.0</Field>
+            <Field Name="HideInSDI_" Class="double">0.0</Field>
+            <Field Name="DomainType_" Class="char"/>
+            <Array PropName="DomainParams_" Type="Struct" Dimension="1*1">
+              <MATStruct/>
+            </Array>
+            <Field Name="VisualType_" Class="char"/>
+          </MATStruct>
+        </Array>
+      </Object>
+    </SimulationSettings>
+    <ExternalMode>
+      <P Name="ExtModeTrigMode">oneshot</P>
+      <P Name="ExtModeArmWhenConnect">off</P>
+      <P Name="ExtModeAutoUpdateStatusClock">off</P>
+    </ExternalMode>
+    <EngineSettings>
+      <P Name="ConfigurableSubsystemUsage">warning</P>
+    </EngineSettings>
+    <ConcurrentExecutionSettings>
+      <Object PropName="DataTransfer" ObjectID="9" ClassName="Simulink.GlobalDataTransfer">
+        <P Name="DefaultTransitionBetweenSyncTasks" Class="char">Ensure deterministic transfer (maximum delay)</P>
+        <P Name="DefaultTransitionBetweenAsyncTasks" Class="char">Ensure data integrity only</P>
+        <P Name="DefaultTransitionBetweenContTasks" Class="char">Ensure deterministic transfer (minimum delay)</P>
+        <P Name="DefaultExtrapolationMethodBetweenContTasks" Class="char">None</P>
+      </Object>
+    </ConcurrentExecutionSettings>
+    <System Ref="system_root"/>
+  </Model>
+</ModelInformation>

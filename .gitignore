@@ -1,0 +1,16 @@
+# MATLAB & Simulink auto-generated files and cache
+*.asv
+*.m~
+*.slxc
+slprj/
+*.mex*
+*.log
+*.p
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Office / LibreOffice temporary lock files
+.~lock.*
+~$*

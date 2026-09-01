@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1440, 913]</P>
+  <P Name="PaperOrientation">landscape</P>
+  <P Name="ZoomFactor">200</P>
+  <Block BlockType="Inport" Name="Slip error" SID="322">
+    <P Name="Position">[20, 423, 50, 437]</P>
+    <P Name="ZOrder">890</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">Slip error</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Reference" Name="Fuzzy Logic &#xA;Controller" SID="199">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[265, 412, 335, 468]</P>
+    <P Name="ZOrder">886</P>
+    <P Name="LibraryVersion">8.20</P>
+    <P Name="SourceBlock">fuzblock/Fuzzy Logic 
+Controller</P>
+    <P Name="SourceType">Fuzzy Inference System</P>
+    <InstanceData>
+      <P Name="RTWMemSecFuncInitTerm">Inherit from model</P>
+      <P Name="RTWMemSecFuncExecute">Inherit from model</P>
+      <P Name="RTWMemSecDataConstants">Inherit from model</P>
+      <P Name="RTWMemSecDataInternal">Inherit from model</P>
+      <P Name="RTWMemSecDataParameters">Inherit from model</P>
+      <P Name="ContentPreviewEnabled">on</P>
+      <P Name="FIS">&apos;ABS.fis&apos;</P>
+      <P Name="OutputSampleNumber">101</P>
+      <P Name="DataType">double</P>
+      <P Name="FuzzifiedInputs">off</P>
+      <P Name="RuleFiringStrengths">off</P>
+      <P Name="RuleOutputs">off</P>
+      <P Name="AggregatedOutputs">off</P>
+      <P Name="SimulateUsing">Interpreted execution</P>
+      <P Name="OutOfRangeInputValueMessage">warning</P>
+      <P Name="NoRuleFiredMessage">warning</P>
+      <P Name="EmptyOutputFuzzySetMessage">warning</P>
+    </InstanceData>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">defuzzifiedOutputs</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Mux" Name="Mux" SID="200">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[195, 421, 200, 459]</P>
+    <P Name="ZOrder">889</P>
+    <P Name="Inputs">2</P>
+    <P Name="DisplayOption">bar</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum" SID="201">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[125, 440, 145, 460]</P>
+    <P Name="ZOrder">888</P>
+    <P Name="Inputs">|+-</P>
+  </Block>
+  <Block BlockType="UnitDelay" Name="Unit Delay" SID="202">
+    <P Name="Position">[90, 473, 125, 507]</P>
+    <P Name="ZOrder">887</P>
+    <P Name="SampleTime">-1</P>
+    <P Name="HasFrameUpgradeWarning">on</P>
+  </Block>
+  <Block BlockType="Outport" Name="Controller output" SID="323">
+    <P Name="Position">[400, 433, 430, 447]</P>
+    <P Name="ZOrder">891</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">343</P>
+    <P Name="Src">201#out:1</P>
+    <P Name="Dst">200#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">345</P>
+    <P Name="Src">202#out:1</P>
+    <P Name="Points">[5, 0]</P>
+    <P Name="Dst">201#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">531</P>
+    <P Name="Src">199#out:1</P>
+    <P Name="Dst">323#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">344</P>
+    <P Name="Src">200#out:1</P>
+    <P Name="Dst">199#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">530</P>
+    <P Name="Src">322#out:1</P>
+    <P Name="Points">[20, 0]</P>
+    <Branch>
+      <P Name="ZOrder">528</P>
+      <P Name="Dst">200#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">527</P>
+      <P Name="Points">[0, 20]</P>
+      <Branch>
+        <P Name="ZOrder">526</P>
+        <P Name="Dst">202#in:1</P>
+      </Branch>
+      <Branch>
+        <P Name="ZOrder">525</P>
+        <P Name="Dst">201#in:1</P>
+      </Branch>
+    </Branch>
+  </Line>
+</System>

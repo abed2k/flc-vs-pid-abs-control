@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1440, 913]</P>
+  <P Name="PaperOrientation">landscape</P>
+  <P Name="ZoomFactor">150</P>
+  <Block BlockType="Inport" Name="Wheel angular velocity" SID="308">
+    <P Name="Position">[35, 718, 65, 732]</P>
+    <P Name="ZOrder">348</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">Wheel angular velocity</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="Vehicle angular velocity" SID="309">
+    <P Name="Position">[35, 758, 65, 772]</P>
+    <P Name="ZOrder">349</P>
+    <P Name="Port">2</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">Vehicle velocity</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="BusCreator" Name="Bus&#xA;Creator" SID="328">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[305, 716, 310, 754]</P>
+    <P Name="ZOrder">352</P>
+    <P Name="Inputs">2</P>
+    <P Name="DisplayOption">bar</P>
+    <P Name="InheritFromInputs">on</P>
+  </Block>
+  <Block BlockType="RateTransition" Name="Rate Transition" SID="121">
+    <P Name="Position">[580, 714, 620, 756]</P>
+    <P Name="ZOrder">337</P>
+    <P Name="OutPortSampleTimeOpt">Inherit</P>
+  </Block>
+  <Block BlockType="Fcn" Name="Relative Slip" SID="6">
+    <P Name="Position">[375, 722, 540, 748]</P>
+    <P Name="ZOrder">286</P>
+    <P Name="Expr">1.0 - u(1)/(u(2) + (u(2)==0)*eps)</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="TestPoint">on</P>
+        <P Name="DataLoggingDecimateData">on</P>
+        <P Name="DataLoggingDecimation">1</P>
+        <P Name="DataLoggingLimitDataPoints">on</P>
+        <P Name="DataLoggingMaxPoints">10000</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="UnitDelay" Name="Unit Delay1" SID="174">
+    <P Name="Position">[655, 718, 690, 752]</P>
+    <P Name="ZOrder">347</P>
+    <P Name="NameLocation">top</P>
+    <P Name="SampleTime">-1</P>
+    <P Name="HasFrameUpgradeWarning">on</P>
+  </Block>
+  <Block BlockType="Gain" Name="Vehicle speed&#xA;(angular)" SID="330">
+    <P Name="Position">[175, 747, 215, 783]</P>
+    <P Name="ZOrder">353</P>
+    <P Name="Gain">1/Rr</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">Vs</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Outport" Name="slip" SID="311">
+    <P Name="Position">[740, 728, 770, 742]</P>
+    <P Name="ZOrder">351</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">463</P>
+    <P Name="Src">174#out:1</P>
+    <P Name="Dst">311#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">456</P>
+    <P Name="Src">121#out:1</P>
+    <P Name="Dst">174#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">6#out:1</P>
+    <P Name="Dst">121#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">470</P>
+    <P Name="Src">308#out:1</P>
+    <P Name="Dst">328#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">472</P>
+    <P Name="Src">328#out:1</P>
+    <P Name="Dst">6#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">473</P>
+    <P Name="Src">309#out:1</P>
+    <P Name="Dst">330#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">Vs</P>
+    <P Name="ZOrder">474</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">330#out:1</P>
+    <P Name="Points">[40, 0; 0, -20]</P>
+    <P Name="Dst">328#in:2</P>
+  </Line>
+</System>

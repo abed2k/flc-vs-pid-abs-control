@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1440, 913]</P>
+  <P Name="PaperOrientation">landscape</P>
+  <P Name="ZoomFactor">175</P>
+  <Block BlockType="Inport" Name="Brake torque" SID="303">
+    <P Name="Position">[15, 38, 45, 52]</P>
+    <P Name="ZOrder">1705</P>
+  </Block>
+  <Block BlockType="Inport" Name="Tire torque" SID="304">
+    <P Name="Position">[15, 103, 45, 117]</P>
+    <P Name="ZOrder">1706</P>
+    <P Name="Port">2</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">Tire Torque</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Gain" Name="1/J" SID="213">
+    <P Name="Position">[315, 28, 345, 62]</P>
+    <P Name="ZOrder">1695</P>
+    <P Name="ShowName">off</P>
+    <P Name="Gain">1/J</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum2" SID="217">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[245, 35, 265, 55]</P>
+    <P Name="ZOrder">1694</P>
+    <P Name="ShowName">off</P>
+    <P Name="Inputs">|-+</P>
+    <P Name="OutDataTypeStr">Inherit: Same as first input</P>
+    <P Name="InputSameDT">on</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="UnitDelay" Name="Unit Delay2" SID="218">
+    <P Name="Position">[130, 93, 165, 127]</P>
+    <P Name="ZOrder">1703</P>
+    <P Name="SampleTime">-1</P>
+    <P Name="HasFrameUpgradeWarning">on</P>
+  </Block>
+  <Block BlockType="DiscreteIntegrator" Name="Wheel angular_velocity" SID="219">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[400, 27, 450, 63]</P>
+    <P Name="ZOrder">1704</P>
+    <P Name="IntegratorMethod">Integration: Trapezoidal</P>
+    <P Name="InitialCondition">v0/Rr</P>
+    <P Name="InitialConditionSetting">Auto</P>
+    <P Name="SampleTime">-1</P>
+    <P Name="LimitOutput">on</P>
+    <P Name="UpperSaturationLimit">1000</P>
+    <P Name="LowerSaturationLimit">0</P>
+    <P Name="ICPrevOutput">DiscIntNeverNeededParam</P>
+    <P Name="ICPrevScaledInput">DiscIntNeverNeededParam</P>
+  </Block>
+  <Block BlockType="Outport" Name="Wheel angular velocity" SID="305">
+    <P Name="Position">[550, 38, 580, 52]</P>
+    <P Name="ZOrder">1707</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">393</P>
+    <P Name="Src">218#out:1</P>
+    <P Name="Points">[85, 0]</P>
+    <P Name="Dst">217#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">396</P>
+    <P Name="Src">213#out:1</P>
+    <P Name="Dst">219#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">391</P>
+    <P Name="Src">217#out:1</P>
+    <P Name="Dst">213#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">446</P>
+    <P Name="Src">219#out:1</P>
+    <P Name="Dst">305#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">445</P>
+    <P Name="Src">304#out:1</P>
+    <P Name="Dst">218#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">444</P>
+    <P Name="Src">303#out:1</P>
+    <P Name="Dst">217#in:1</P>
+  </Line>
+</System>

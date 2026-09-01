@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <cp:category>model</cp:category>
+  <dcterms:created xsi:type="dcterms:W3CDTF">1998-08-19T20:12:42Z</dcterms:created>
+  <dc:creator>The MathWorks, Inc.</dc:creator>
+  <dc:description>Modeling an Anti-Lock Braking System (ABS)
+
+*Summary*
+
+This example describes a simple model for an Anti-Lock Braking System
+(ABS). The model simulates the dynamic behavior of a vehicle 
+under hard braking conditions. The model represents a single wheel, which
+may be replicated a number of times to create a model for a multi-wheel
+vehicle. 
+
+This model uses the signal logging feature in Simulink(R). You log signals to the 
+MATLAB(R) workspace where you can analyze and view them. You can view 
+the code in sldemo_absbrakeplots.m to see how this is done.
+
+In this model, the wheel speed is calculated in a separate component
+named sldemo_wheelspeed_absbrake.  
+This component is then referenced using a Model block.  Note that both the 
+top model and the referenced model use a variable step solver, so Simulink 
+will track zero-crossings in the referenced model.
+
+</dc:description>
+  <cp:lastModifiedBy>The MathWorks, Inc.</cp:lastModifiedBy>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2025-05-30T08:01:04Z</dcterms:modified>
+  <cp:revision>8.7</cp:revision>
+  <cp:version>R2024a</cp:version>
+</cp:coreProperties>

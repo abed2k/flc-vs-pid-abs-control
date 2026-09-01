@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1440, 913]</P>
+  <P Name="PaperOrientation">landscape</P>
+  <P Name="ZoomFactor">150</P>
+  <Block BlockType="Inport" Name="Controller output" SID="295">
+    <P Name="Position">[-10, 53, 20, 67]</P>
+    <P Name="ZOrder">1701</P>
+  </Block>
+  <Block BlockType="Integrator" Name="Brake&#xA;pressure" SID="214">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[325, 45, 365, 75]</P>
+    <P Name="ZOrder">1700</P>
+    <P Name="LimitOutput">on</P>
+    <P Name="UpperSaturationLimit">1500</P>
+    <P Name="LowerSaturationLimit">0</P>
+  </Block>
+  <Block BlockType="Gain" Name="Force &amp;&#xA;torque" SID="215">
+    <P Name="Position">[455, 42, 495, 78]</P>
+    <P Name="ZOrder">1699</P>
+    <P Name="Gain">Kf</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="DataLoggingName">%&lt;SignalLabel&gt;</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="TransferFcn" Name="Hydraulic Lag " SID="216">
+    <P Name="Position">[125, 27, 195, 93]</P>
+    <P Name="ZOrder">1698</P>
+    <P Name="Numerator">[100]</P>
+    <P Name="Denominator">[0.01 1]</P>
+  </Block>
+  <Block BlockType="Outport" Name="Brake torque" SID="296">
+    <P Name="Position">[585, 53, 615, 67]</P>
+    <P Name="ZOrder">1702</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">424</P>
+    <P Name="Src">295#out:1</P>
+    <P Name="Dst">216#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">386</P>
+    <P Name="Src">216#out:1</P>
+    <P Name="Dst">214#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">389</P>
+    <P Name="Src">214#out:1</P>
+    <P Name="Dst">215#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">425</P>
+    <P Name="Src">215#out:1</P>
+    <P Name="Dst">296#in:1</P>
+  </Line>
+</System>

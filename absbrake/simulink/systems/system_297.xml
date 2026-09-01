@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1440, 913]</P>
+  <P Name="PaperOrientation">landscape</P>
+  <Block BlockType="Inport" Name="slip" SID="298">
+    <P Name="Position">[-290, 373, -260, 387]</P>
+    <P Name="ZOrder">261</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">slip ratio</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Gain" Name="-1/m" SID="89">
+    <P Name="Position">[280, 443, 320, 487]</P>
+    <P Name="ZOrder">245</P>
+    <P Name="ShowName">off</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="Gain">-1/m</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">vehicle 
+deceleration</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Gain" Name="Rr" SID="90">
+    <P Name="Position">[285, 292, 325, 328]</P>
+    <P Name="ZOrder">239</P>
+    <P Name="ShowName">off</P>
+    <P Name="Gain">Rr</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">Tire Torque</P>
+        <P Name="DataLoggingName">%&lt;SignalLabel&gt;</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Stop" Name="Stop Simulation2" SID="91">
+    <P Name="Position">[490, 455, 530, 495]</P>
+    <P Name="ZOrder">244</P>
+    <P Name="ShowName">off</P>
+  </Block>
+  <Block BlockType="DiscreteIntegrator" Name="Vehicle Speed" SID="181">
+    <PortCounts in="1" out="2"/>
+    <P Name="Position">[380, 437, 450, 488]</P>
+    <P Name="ZOrder">260</P>
+    <P Name="IntegratorMethod">Integration: Trapezoidal</P>
+    <P Name="InitialCondition">v0</P>
+    <P Name="InitialConditionSetting">Auto</P>
+    <P Name="SampleTime">-1</P>
+    <P Name="LimitOutput">on</P>
+    <P Name="UpperSaturationLimit">1000</P>
+    <P Name="LowerSaturationLimit">0</P>
+    <P Name="ShowSaturationPort">on</P>
+    <P Name="ICPrevOutput">DiscIntNeverNeededParam</P>
+    <P Name="ICPrevScaledInput">DiscIntNeverNeededParam</P>
+  </Block>
+  <Block BlockType="Gain" Name="Weight" SID="95">
+    <P Name="Position">[165, 363, 210, 397]</P>
+    <P Name="ZOrder">238</P>
+    <P Name="Gain">m*g/4</P>
+    <P Name="ParamDataTypeStr">Inherit: Same as input</P>
+    <P Name="OutDataTypeStr">Inherit: Same as input</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">Ff</P>
+        <P Name="DataLoggingName">%&lt;SignalLabel&gt;</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Integrator" Name="integrator" SID="92">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[680, 431, 710, 469]</P>
+    <P Name="ZOrder">243</P>
+    <P Name="UpperSaturationLimit">1000</P>
+    <P Name="LowerSaturationLimit">0</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">Sd</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Lookup_n-D" Name="mu-slip&#xA;friction dry" SID="318">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[-55, 237, -10, 293]</P>
+    <P Name="ZOrder">267</P>
+    <P Name="InputPortMap">u0</P>
+    <P Name="NumberOfTableDimensions">1</P>
+    <P Name="BreakpointsForDimension1">slip_dry</P>
+    <P Name="Table">mu_dry</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Lookup_n-D" Name="mu-slip&#xA;friction icy" SID="96">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[-55, 467, -10, 523]</P>
+    <P Name="ZOrder">237</P>
+    <P Name="InputPortMap">u0</P>
+    <P Name="NumberOfTableDimensions">1</P>
+    <P Name="BreakpointsForDimension1">slip_icy</P>
+    <P Name="Table">mu_icy</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Lookup_n-D" Name="mu-slip&#xA;friction wet" SID="319">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[-55, 352, -10, 408]</P>
+    <P Name="ZOrder">268</P>
+    <P Name="InputPortMap">u0</P>
+    <P Name="NumberOfTableDimensions">1</P>
+    <P Name="BreakpointsForDimension1">slip_wet</P>
+    <P Name="Table">mu_wet</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+  </Block>
+  <Block BlockType="Outport" Name="Tire torque" SID="299">
+    <P Name="Position">[760, 303, 790, 317]</P>
+    <P Name="ZOrder">262</P>
+  </Block>
+  <Block BlockType="Outport" Name="Vehicle velocity" SID="300">
+    <P Name="Position">[760, 373, 790, 387]</P>
+    <P Name="ZOrder">263</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Outport" Name="Stopping distance" SID="301">
+    <P Name="Position">[760, 443, 790, 457]</P>
+    <P Name="ZOrder">264</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">276</P>
+    <P Name="Src">181#out:1</P>
+    <P Name="Points">[144, 0]</P>
+    <Branch>
+      <P Name="ZOrder">460</P>
+      <P Name="Points">[0, -70]</P>
+      <P Name="Dst">300#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">457</P>
+      <P Name="Dst">92#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="Name">vehicle 
+deceleration</P>
+    <P Name="ZOrder">242</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">89#out:1</P>
+    <P Name="Dst">181#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">Ff</P>
+    <P Name="ZOrder">77</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">95#out:1</P>
+    <P Name="Points">[30, 0]</P>
+    <Branch>
+      <P Name="ZOrder">443</P>
+      <P Name="Points">[0, -70]</P>
+      <P Name="Dst">90#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">86</P>
+      <P Name="Labels">[-1, 0]</P>
+      <P Name="Points">[0, 85]</P>
+      <P Name="Dst">89#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="Name">Sd</P>
+    <P Name="ZOrder">425</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">92#out:1</P>
+    <P Name="Dst">301#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">283</P>
+    <P Name="Src">181#out:2</P>
+    <P Name="Dst">91#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">Tire Torque</P>
+    <P Name="ZOrder">423</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">90#out:1</P>
+    <P Name="Dst">299#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">477</P>
+    <P Name="Src">298#out:1</P>
+    <P Name="Points">[97, 0; 0, 115]</P>
+    <P Name="Dst">96#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">478</P>
+    <P Name="Src">96#out:1</P>
+    <P Name="Points">[83, 0; 0, -115]</P>
+    <P Name="Dst">95#in:1</P>
+  </Line>
+</System>

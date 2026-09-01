@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sltp_graph version="1.1" packageUris="http://schema.mathworks.com/mf0/sltp_mm/R2023a_202209151115">
+  <sltp.mm.core.Context type="sltp.mm.core.Context" uuid="752a018b-5a5b-4528-9d0e-b1e3bb47b89b">
+    <globalData type="sltp.mm.core.GlobalData" uuid="f4444c4c-bac8-4161-af0c-1538cc3ac8c2">
+      <dataName>portBp</dataName>
+      <type>RootOutport</type>
+    </globalData>
+    <globalData type="sltp.mm.core.GlobalData" uuid="2b8d796c-3532-4cd2-8228-58dd311cf247">
+      <dataName>portController out</dataName>
+      <type>RootInport</type>
+    </globalData>
+    <globalData type="sltp.mm.core.GlobalData" uuid="d32810f6-7f3b-448c-ae44-85afe18824ad">
+      <dataName>portTire Torque</dataName>
+      <type>RootInport</type>
+    </globalData>
+    <globalData type="sltp.mm.core.GlobalData" uuid="1eff319b-5b05-4b64-9c6e-3815a2b5ccbd">
+      <dataName>portWa</dataName>
+      <type>RootOutport</type>
+    </globalData>
+    <globalData type="sltp.mm.core.GlobalData" uuid="426279a0-bae6-499a-9cab-270e0c785d59">
+      <dataName>portWheelSpeed</dataName>
+      <type>RootOutport</type>
+    </globalData>
+    <priorityDirection>HighNumberLast</priorityDirection>
+    <defaultEventBehavior type="sltp.mm.core.EventBehavior" uuid="1f5a3cf0-05a7-4cb4-b0ef-b3dabd8cc5c7"/>
+    <editorState type="sltp.mm.core.EditorState" uuid="94a965c1-a9db-46ab-8571-217751a9a1e9">
+      <isSynchronized>true</isSynchronized>
+      <panelState type="sltp.mm.core.EditorPanelState" uuid="9d63bf4f-057a-462b-be63-ad4d2ec0abb0"/>
+    </editorState>
+    <rootTask type="sltp.mm.core.Task" uuid="31152cf7-e901-472b-b91e-2467f5dc64a6">
+      <context type="sltp.mm.core.Context" uuid="752a018b-5a5b-4528-9d0e-b1e3bb47b89b"/>
+      <explicit>false</explicit>
+      <name>Default</name>
+      <priority>-2147483648</priority>
+      <subgraph type="sltp.mm.core.Graph" uuid="ad5d190b-2f0f-4754-a376-8a4226f8750a">
+        <tasks type="sltp.mm.core.Task" uuid="a09266a7-96ab-473b-a9c0-7835aca8b98e">
+          <baseTask>true</baseTask>
+          <context type="sltp.mm.core.Context" uuid="752a018b-5a5b-4528-9d0e-b1e3bb47b89b"/>
+          <explicit>false</explicit>
+          <id>1</id>
+          <isTimed>true</isTimed>
+          <name>Cont</name>
+          <priority>40</priority>
+          <rates type="sltp.mm.core.Rate" uuid="40097da5-346c-40dc-bb18-114d6f19dbd7">
+            <annotation>Cont</annotation>
+            <color>255</color>
+            <hasBlocks>true</hasBlocks>
+            <identifier>Continuous00</identifier>
+            <rateIndex>0</rateIndex>
+            <rateSpec type="sltp.mm.core.RateSpec">
+              <period>0.0</period>
+            </rateSpec>
+            <sti>0</sti>
+          </rates>
+          <rates type="sltp.mm.core.Rate" uuid="5aa1851e-f5ce-4750-98d5-6206819c6573">
+            <annotation>D1</annotation>
+            <color>-12240129</color>
+            <hasBlocks>true</hasBlocks>
+            <rateIndex>1</rateIndex>
+            <rateSpec type="sltp.mm.core.RateSpec">
+              <period>.01</period>
+            </rateSpec>
+            <sti>1</sti>
+          </rates>
+        </tasks>
+      </subgraph>
+    </rootTask>
+  </sltp.mm.core.Context>
+</sltp_graph>

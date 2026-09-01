@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1440, 913]</P>
+  <P Name="Open">on</P>
+  <P Name="ZoomFactor">60</P>
+  <P Name="ReportName">simulink-default.rpt</P>
+  <P Name="SIDHighWatermark">331</P>
+  <Block BlockType="SubSystem" Name="Brake Torque" SID="294">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[405, 40, 545, 150]</P>
+    <P Name="ZOrder">1758</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_294"/>
+  </Block>
+  <Block BlockType="Constant" Name="Desired slip for Dry" SID="315">
+    <P Name="Position">[-510, -5, -480, 25]</P>
+    <P Name="ZOrder">1763</P>
+    <P Name="Value">0.15</P>
+  </Block>
+  <Block BlockType="Constant" Name="Desired slip for Icy" SID="316">
+    <P Name="Position">[-510, 165, -480, 195]</P>
+    <P Name="ZOrder">1764</P>
+    <P Name="Value">0.2</P>
+  </Block>
+  <Block BlockType="Constant" Name="Desired slip for wet" SID="3">
+    <P Name="Position">[-510, 82, -480, 108]</P>
+    <P Name="ZOrder">20</P>
+    <P Name="Value">0.10</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="Fuzzy controller" SID="321">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[70, 125, 215, 235]</P>
+    <P Name="ZOrder">1766</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">defuzzifiedOutputs</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_321"/>
+  </Block>
+  <Block BlockType="Scope" Name="Output" SID="293">
+    <PortCounts in="4"/>
+    <P Name="Position">[1340, 11, 1470, 154]</P>
+    <P Name="ZOrder">1757</P>
+    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true),extmgr.Configuration(&apos;Core&apos;,&apos;Source UI&apos;,true),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true,&apos;DataLoggingVariableName&apos;,&apos;ScopeData1&apos;),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;-16.66667&apos;,&apos;MaxYLimReal&apos;,&apos;150.00000&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;150.00000&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,1,&apos;LineNames&apos;,{{&apos;Wheel angular velocity (PID)_icy&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1),struct(&apos;MinYLimReal&apos;,&apos;-0.47369&apos;,&apos;MaxYLimReal&apos;,&apos;1.16374&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;115.42578&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,1,&apos;LineNames&apos;,{{&apos;slip ratio (PID) _icy&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,2),struct(&apos;MinYLimReal&apos;,&apos;-4.43388&apos;,&apos;MaxYLimReal&apos;,&apos;4.89164&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;115.42578&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,1,&apos;LineNames&apos;,{{&apos;Vehicle velocity (PID)_icy&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,3),struct(&apos;MinYLimReal&apos;,&apos;-466.73269&apos;,&apos;MaxYLimReal&apos;,&apos;4200.59418&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;115.42578&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,1,&apos;LineNames&apos;,{{&apos;stopping distance (PID)_icy&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,4)},&apos;DisplayPropertyDefaults&apos;,struct(&apos;YLabelReal&apos;,&apos;&apos;,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),&apos;DisplayLayoutDimensions&apos;,[2 2]),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true,&apos;PreviousAutoscale&apos;,&apos;XY&apos;,&apos;AutoscaleXAnchor&apos;,&apos;Right&apos;,&apos;AutoscaleSecondaryAxes&apos;,true,&apos;OnceAtStop&apos;,false),extmgr.Configuration(&apos;Tools&apos;,&apos;Measurements&apos;,true,&apos;Version&apos;,&apos;2024a&apos;)),&apos;Version&apos;,&apos;2024a&apos;,&apos;Position&apos;,[1 49 1440 839.333333333333])</P>
+    <P Name="NumInputPorts">4</P>
+    <P Name="Floating">off</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="PID controller" SID="325">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[70, -51, 215, 71]</P>
+    <P Name="ZOrder">1768</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_325"/>
+  </Block>
+  <Block BlockType="Sum" Name="Sum1" SID="10">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[-140, 75, -110, 115]</P>
+    <P Name="ZOrder">19</P>
+    <P Name="ShowName">off</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="Inputs">|+-</P>
+    <P Name="OutDataTypeStr">Inherit: Same as first input</P>
+    <P Name="InputSameDT">on</P>
+    <P Name="SaturateOnIntegerOverflow">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">Slip error</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="SubSystem" Name="Vehicle dynamics" SID="297">
+    <PortCounts in="1" out="3"/>
+    <P Name="Position">[700, 35, 850, 155]</P>
+    <P Name="ZOrder">1759</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">Tire Torque</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="Name">Vehicle velocity</P>
+      </Port>
+      <Port Type="out" Index="3">
+        <P Name="Name">stopping distance</P>
+        <P Name="PropagatedSignals">Sd</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_297"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="Wheel dynamics" SID="302">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[700, -221, 850, -94]</P>
+    <P Name="ZOrder">1760</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">Wheel angular velocity</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_302"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="slip calculation" SID="307">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[685, 264, 835, 391]</P>
+    <P Name="ZOrder">1761</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">slip ratio</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_307"/>
+  </Block>
+  <Block BlockType="Scope" Name="Scope" SID="189">
+    <PortCounts/>
+    <P Name="Position">[185, 14, 215, 46]</P>
+    <P Name="ZOrder">111</P>
+    <P Name="IOType">viewer</P>
+    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true),extmgr.Configuration(&apos;Core&apos;,&apos;Source UI&apos;,true),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true,&apos;DataLoggingVariableName&apos;,&apos;ScopeData1&apos;),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;-8.8&apos;,&apos;MaxYLimReal&apos;,&apos;79.2&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;79.2&apos;,&apos;LegendVisibility&apos;,&apos;off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,0,&apos;LineNames&apos;,{{[]}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1)},&apos;DisplayPropertyDefaults&apos;,struct(&apos;MinYLimReal&apos;,&apos;-8.8&apos;,&apos;MaxYLimReal&apos;,&apos;79.2&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;79.2&apos;,&apos;LegendVisibility&apos;,&apos;off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true),extmgr.Configuration(&apos;Tools&apos;,&apos;Measurements&apos;,true,&apos;Version&apos;,&apos;2024a&apos;)),&apos;Version&apos;,&apos;2024a&apos;,&apos;Position&apos;,[440 269.666666666667 560 420])</P>
+    <P Name="NumInputPorts">1</P>
+    <P Name="Floating">off</P>
+  </Block>
+  <Line>
+    <P Name="Name">slip ratio</P>
+    <P Name="ZOrder">469</P>
+    <P Name="Src">307#out:1</P>
+    <P Name="Points">[46, 0; 0, 5]</P>
+    <Branch>
+      <P Name="ZOrder">583</P>
+      <P Name="Points">[123, 0; 0, -265]</P>
+      <Branch>
+        <P Name="ZOrder">585</P>
+        <P Name="Points">[0, -62; -342, 0; 0, 87]</P>
+        <P Name="Dst">297#in:1</P>
+      </Branch>
+      <Branch>
+        <P Name="ZOrder">561</P>
+        <P Name="Labels">[1, 1]</P>
+        <P Name="Dst">293#in:2</P>
+      </Branch>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">571</P>
+      <P Name="Points">[0, 92; -1083, 0; 0, -317; 57, 0]</P>
+      <P Name="Dst">10#in:2</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">451</P>
+    <P Name="Src">294#out:1</P>
+    <P Name="Points">[45, 0; 0, -285]</P>
+    <P Name="Dst">302#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">452</P>
+    <P Name="Src">297#out:1</P>
+    <P Name="Points">[19, 0; 0, -121; -196, 0; 0, -59]</P>
+    <P Name="Dst">302#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">stopping distance</P>
+    <P Name="ZOrder">445</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">297#out:3</P>
+    <P Name="Dst">293#in:4</P>
+  </Line>
+  <Line>
+    <P Name="Name">Vehicle velocity</P>
+    <P Name="ZOrder">444</P>
+    <P Name="Src">297#out:2</P>
+    <P Name="Points">[118, 0; 0, 5]</P>
+    <Branch>
+      <P Name="ZOrder">577</P>
+      <P Name="Points">[0, 156; -312, 0; 0, 104]</P>
+      <P Name="Dst">307#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">562</P>
+      <P Name="Labels">[1, 1]</P>
+      <P Name="Dst">293#in:3</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="Name">Wheel angular velocity</P>
+    <P Name="ZOrder">453</P>
+    <P Name="Src">302#out:1</P>
+    <P Name="Points">[190, 0; 0, 177]</P>
+    <Branch>
+      <P Name="ZOrder">552</P>
+      <P Name="Labels">[2, 1]</P>
+      <P Name="Points">[0, 13]</P>
+      <P Name="Dst">293#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">543</P>
+      <P Name="Points">[-408, 0; 0, 273]</P>
+      <P Name="Dst">307#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">638</P>
+    <P Name="Src">325#out:1</P>
+    <P Name="Points">[90, 0; 0, 85]</P>
+    <P Name="Dst">294#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">Slip error</P>
+    <P Name="ZOrder">639</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">10#out:1</P>
+    <P Name="Points">[85, 0; 0, -85]</P>
+    <P Name="Dst">325#in:1</P>
+  </Line>
+</System>

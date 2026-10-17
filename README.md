@@ -17,12 +17,13 @@ This repository provides a complete simulation environment comparing:
 ## Repository Structure
 
 ```text
-├── ABS Fuzzy VS PID Report.docx  # Full project report (MECE404 End of Semester Project)
-├── ABS.fis                        # MATLAB Fuzzy Logic Controller file (Mamdani FIS)
-├── final_abs_code.m               # MATLAB setup script (parameters & mu-slip curves)
-├── absbrake.slx                   # Main Simulink model file
-├── absbrake/                      # Simulink model project directory source files
+├── absbrake/                      # Simulink model project directory
+├── images/                        # System architecture and simulation result images
 ├── .gitignore                     # Git ignore file for MATLAB/Simulink temporary files
+├── ABS.fis                        # MATLAB Fuzzy Logic Controller file (Mamdani FIS)
+├── LICENSE                        # Project license
+├── absbrake.slx                   # Main Simulink model file
+├── final_abs_code.m               # MATLAB setup script (parameters & mu-slip curves)
 └── README.md                      # Project documentation and guide
 ```
 

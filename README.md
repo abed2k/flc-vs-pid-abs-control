@@ -27,6 +27,9 @@ This repository provides a complete simulation environment comparing:
 ```
 
 ---
+##  System Architecture
+![System Architecture](images/results/system-architecture.jpeg)
+
 
 ## Mathematical & System Model
 
@@ -126,9 +129,6 @@ Target slip ratio: λ = 0.20
 | **PS** | HOLD | IPS | IPL |
 | **PL** | HOLD | IPS | IPL |
 
-
-##  System Architecture
-![System Architecture](images/results/system-architecture.jpeg)
 ---
 
 ## 🚀 How to Run the Simulation
@@ -184,7 +184,7 @@ Target slip ratio: λ = 0.20
 
 ---
 
-## 📊 Summary of Results & Comparison
+## 📊 Results & Comparison
 
 | Surface Condition | Target Slip ($\lambda$) | PID Slip Tracking | Fuzzy Slip Tracking | Wheel Speed Stability | Stopping Distance |
 | :--- | :---: | :---: | :---: | :--- | :--- |
@@ -194,7 +194,7 @@ Target slip ratio: λ = 0.20
 
 ### Simulation Results
 
-The plots below are taken from the project report. Each road condition compares the Fuzzy Logic Controller (FLC) and PID controller for vehicle speed, wheel speed, slip ratio, and stopping distance.
+The plots below are taken from Simulink. Each road condition compares the Fuzzy Logic Controller (FLC) and PID controller for vehicle speed, wheel speed, slip ratio, and stopping distance.
 
 #### Dry Asphalt
 
@@ -244,9 +244,7 @@ The plots below are taken from the project report. Each road condition compares 
 
 ## Authors & Acknowledgments
 
-* **Authors**: Abdul Karim (22244410053) & Salman AL-KHULAQI (22244410048)
-* **Course**: MECE404 - Intelligent Mechatronics (End of Semester Project)
-* **Department**: Department of Mechatronics Engineering
+* **Authors**: Abdul Karim & Salman AL-KHULAQI
 
 ---
 

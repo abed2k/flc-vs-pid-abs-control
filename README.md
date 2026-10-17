@@ -61,10 +61,29 @@ The system utilizes a **quarter-car vehicle model** with dynamic equations gover
 
 ### 3. Tire-Road Friction Coefficient ($\mu-\lambda$ Curves)
 
-The relationship between slip ratio $\lambda$ and friction coefficient $\mu$ is non-linear and varies significantly based on surface conditions:
-* **Dry Asphalt**: Peak friction $\mu_{max} \approx 0.90$ at target slip $\lambda^* = 0.15$.
-* **Wet Asphalt**: Peak friction $\mu_{max} \approx 0.70$ at target slip $\lambda^* = 0.10$.
-* **Icy Asphalt**: Peak friction $\mu_{max} \approx 0.10$ at target slip $\lambda^* = 0.20$.
+---
+
+## Tire-Road Friction Coefficient (μ–λ Curves)
+
+The relationship between slip ratio (λ) and friction coefficient (μ) is nonlinear and varies with road conditions.
+
+### Dry Asphalt
+Peak friction coefficient: μ ≈ 0.90  
+Target slip ratio: λ = 0.15
+
+![Dry Asphalt μ–λ Curve](images/results/dry-mu-lambda.jpeg)
+
+### Wet Asphalt
+Peak friction coefficient: μ ≈ 0.70  
+Target slip ratio: λ = 0.10
+
+![Wet Asphalt μ–λ Curve](images/results/wet-mu-lambda.jpeg)
+
+### Icy Asphalt
+Peak friction coefficient: μ ≈ 0.10  
+Target slip ratio: λ = 0.20
+
+![Icy Asphalt μ–λ Curve](images/results/icy-mu-lambda.jpeg)
 
 ---
 
@@ -107,6 +126,9 @@ The relationship between slip ratio $\lambda$ and friction coefficient $\mu$ is 
 | **PS** | HOLD | IPS | IPL |
 | **PL** | HOLD | IPS | IPL |
 
+
+### 2. Fuzzy Logic Controller (FLC)
+![System Architecture](images/results/system-architecture.jpeg)
 ---
 
 ## 🚀 How to Run the Simulation
@@ -169,6 +191,48 @@ The relationship between slip ratio $\lambda$ and friction coefficient $\mu$ is 
 | **Dry Asphalt** | `0.15` | High oscillation & overshoot | Exceptional tracking, minimal deviation | PID shows high-frequency chattering; FLC is smooth | FLC stops shorter |
 | **Wet Asphalt** | `0.10` | Large oscillations initial phase | Stable tracking with low overshoot | FLC shows reduced high-frequency chatter | FLC stops shorter |
 | **Icy Asphalt** | `0.20` | Extreme oscillations | Reduced oscillation amplitude | Both exhibit oscillations, FLC less aggressive | Similar performance |
+
+### Simulation Results
+
+The plots below are taken from the project report. Each road condition compares the Fuzzy Logic Controller (FLC) and PID controller for vehicle speed, wheel speed, slip ratio, and stopping distance.
+
+#### Dry Asphalt
+
+| Vehicle Speed | Wheel Speed |
+| :---: | :---: |
+| ![Dry asphalt vehicle speed: FLC vs PID](images/results/dry-vehicle-speed.jpeg) | ![Dry asphalt wheel speed: FLC vs PID](images/results/dry-wheel-speed.jpeg) |
+
+| Slip Ratio | Stopping Distance |
+| :---: | :---: |
+| ![Dry asphalt slip ratio: FLC vs PID](images/results/dry-slip-ratio.jpeg) | ![Dry asphalt stopping distance: FLC vs PID](images/results/dry-stopping-distance.jpeg) |
+
+**Observation:** On dry asphalt, the FLC tracks the target slip more closely and shows less oscillation than PID. The report also shows a slightly shorter stopping distance with FLC.
+
+#### Wet Asphalt
+
+| Vehicle Speed | Wheel Speed |
+| :---: | :---: |
+| ![Wet asphalt vehicle speed: FLC vs PID](images/results/wet-vehicle-speed.jpeg) | ![Wet asphalt wheel speed: FLC vs PID](images/results/wet-wheel-speed.jpeg) |
+
+| Slip Ratio | Stopping Distance |
+| :---: | :---: |
+| ![Wet asphalt slip ratio: FLC vs PID](images/results/wet-slip-ratio.jpeg) | ![Wet asphalt stopping distance: FLC vs PID](images/results/wet-stopping-distance.jpeg) |
+
+**Observation:** The FLC shows smoother wheel-speed behavior and better tracking of the target slip ratio. The overall vehicle-speed performance is similar, with FLC stopping at a slightly shorter distance according to the report.
+
+#### Icy Asphalt
+
+| Vehicle Speed | Wheel Speed |
+| :---: | :---: |
+| ![Icy asphalt vehicle speed: FLC vs PID](images/results/icy-vehicle-speed.jpeg) | ![Icy asphalt wheel speed: FLC vs PID](images/results/icy-wheel-speed.jpeg) |
+
+| Slip Ratio | Stopping Distance |
+| :---: | :---: |
+| ![Icy asphalt slip ratio: FLC vs PID](images/results/icy-slip-ratio.jpeg) | ![Icy asphalt stopping distance: FLC vs PID](images/results/icy-stopping-distance.jpeg) |
+
+**Observation:** Both controllers struggle to keep slip near the target on icy asphalt. FLC oscillations are less aggressive, but overall braking performance is closer to PID than on dry asphalt.
+
+---
 
 ### Key Discussion Points
 

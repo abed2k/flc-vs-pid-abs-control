@@ -127,7 +127,7 @@ Target slip ratio: λ = 0.20
 | **PL** | HOLD | IPS | IPL |
 
 
-### 2. Fuzzy Logic Controller (FLC)
+##  System Architecture
 ![System Architecture](images/results/system-architecture.jpeg)
 ---
 

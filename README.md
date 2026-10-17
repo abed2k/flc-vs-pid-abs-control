@@ -246,7 +246,7 @@ The plots below are taken from Simulink. Each road condition compares the Fuzzy 
 
 ## Authors & Acknowledgments
 
-* **Authors**: Abdul Karim & Salman AL-KHULAQI
+* **Authors**: **[Abdul Karim](https://github.com/abed2k)** & **[Salman AL-KHULAQI](https://github.com/salmanalkhulaqi)**
 
 ---
 

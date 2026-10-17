@@ -27,6 +27,7 @@ This repository provides a complete simulation environment comparing:
 ```
 
 ---
+
 ##  System Architecture
 ![System Architecture](images/results/system-architecture.jpeg)
 
